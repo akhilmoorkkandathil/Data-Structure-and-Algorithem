@@ -77,23 +77,16 @@ class DoublyLinkedList {
     // The get method takes an index number as parameter and returns the value of the node at that index
     get(index){
         if(index < 0 || index >= this.length) return null
-        let count, current
-        if(index <= this.length/2){
-            count = 0
-            current = this.head
-            while(count !== index){
-                current = current.next
-                count++
+        let curr = this.head;
+        let count = 0 ;
+        while(curr){
+            if(count==index){
+                return curr;
             }
-        } else {
-            count = this.length - 1
-            current = this.tail
-            while(count !== index){
-                current = current.prev
-                count--;
-            }
+            if(!curr.next) return false
+            curr = curr.next;
+            count++
         }
-        return current
     }
     // The set method takes an index number and a value as parameters, and modifies the node value at the given index in the list
     set(index, val){
@@ -103,6 +96,15 @@ class DoublyLinkedList {
             return true
         }
         return false
+    }
+    print(){
+        if(!this.head) return null;
+        let curr = this.head;
+        while(curr){
+            console.log(curr.val);
+            curr=curr.next;
+        }
+        return
     }
     // The insert method takes an index number and a value as parameters, and inserts the value at the given index in the list
     insert(index, val){
@@ -120,7 +122,15 @@ class DoublyLinkedList {
         return true
     }
 }
-
+const list  = new DoublyLinkedList();
+list.push(1)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
+list.push(6)
+console.log(list.insert(1,5));
+console.log(list.print());
 
 // The big O of doubly linked lists methodsands
 // Insertion - O(1)

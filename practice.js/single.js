@@ -181,8 +181,9 @@ class linkedList{
             curr=next
 
         }
-        this.tail = this.head
-        this.head = prev
+        this.tail = this.head; 
+    this.head = prev; 
+    this.tail.next = null; 
     }
     removeDupicates(){
         let curr = this.head;
@@ -197,9 +198,15 @@ class linkedList{
             prev = curr;
             curr = curr.next
         }
+        return
     }
     print(){
-        return this;
+        let curr = this.head;
+        while(curr){
+            console.log(curr.val);
+            curr=curr.next;
+        }
+        return;
     }
 
 }
