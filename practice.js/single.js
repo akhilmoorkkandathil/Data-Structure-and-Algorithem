@@ -64,21 +64,19 @@ class linkedList{
         let prev = null;
         while(curr){
             if(curr.val == val){
-                if(prev == null){
+                if(prev ==null){
                     this.head = curr.next;
-                    if(curr.next == null){
-                        this.tail = curr;
+                    if(this.head = null){
+                        this.tail =null
                     }
                 }else{
                     prev.next = curr.next;
-                    this.length--;
-                    if(curr.next == null){
-                        this.tail == prev;
+                    if(curr.next==this.tail){
+                        this.tail = prev;
                     }
-
                 }
-                return true
-                
+                this.length--;
+                return true;
             }
             prev=curr;
             curr=curr.next;
@@ -234,7 +232,7 @@ list.addEnd(6)
 //console.log(list.insertAfter(5,100));
 //console.log(list.head.next.next.next.next.next.next);
 //list.reverse()
-list.removeDupicates()
+list.delete(1)
 console.log(list.print());
 //console.log(list.get(3));
 
