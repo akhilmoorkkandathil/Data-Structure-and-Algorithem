@@ -406,22 +406,22 @@
 //         this.head = this.tail;
 //         this.tail = prev;
 //     }
-//     reverseRecursive(curr = this.head, prev = null) {
-//         if (!curr) {
-//             return;
-//         }
-//         if (!curr.next) {
-//             this.tail = this.head;
-//             this.head = curr;
-//             curr.next = prev;
+    // reverseRecursive(curr = this.head, prev = null) {
+    //     if (!curr) {
+    //         return;
+    //     }
+    //     if (!curr.next) {
+    //         this.tail = this.head;
+    //         this.head = curr;
+    //         curr.next = prev;
             
-//             return;
-//         }
+    //         return;
+    //     }
     
-//         const nextNode = curr.next;
-//         curr.next = prev;
-//         this.reverseRecursive(nextNode, curr);
-//     }
+    //     const nextNode = curr.next;
+    //     curr.next = prev;
+    //     this.reverseRecursive(nextNode, curr);
+    // }
 //     printlist(){
 //         return this
 //     }
@@ -532,6 +532,93 @@ class doublyLinkedList{
         }
         return
     }
+    deleteFirst(){
+        if(!this.head) return false;
+        if(this.length==1){
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
+            return true
+        }
+        let currHeadd = this.head;
+        this.head = currHeadd.next
+        this.head.prev = null;
+        this.length--;
+        return true
+    }
+
+    deleteLast(){
+        if(!this.head) return false;
+        if(this.length==1){
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
+            return true
+        }
+        let currTail = this.tail;
+        this.tail = currTail.prev;
+        this.tail.next = null;
+        currTail.prev = null;
+        this.length--;
+        return true
+    }
+
+    delete(index){
+        if(!this.head) return false;
+        if(index<0 || index>this.length-1) return false;
+        if(index==0) return this.deleteFirst()
+        if(index==this.length-1) return this.deleteLast()
+        let curr = this.head;
+        let count = 0;
+        let prev = null;
+        while(curr.next){
+            if(index == count){
+                prev.next = curr.next;
+                this.length--
+                return true;
+            }
+            prev = curr;
+            curr = curr.next;
+            count++
+        }
+    }
+
+    deleteAfter(index){
+        if(!this.head) return false
+        if(index<0 || index>=this.length-1) return false;
+        if(index==this.length-2) return this.deleteLast();
+        let curr = this.head;
+        let count = 0;
+        while(curr){
+            if(count === index){
+                curr.next = curr.next.next;
+                this.length--;
+                return true;
+            }
+            curr = curr.next;
+            count++
+        }
+    }
+    deleteBefore(index){
+        if(!this.head) return false;
+        if(index<=0 || index>this.length) return false;
+        if(index == 1) return this.deleteFirst();
+        if(index == this.length) return this.deleteLast();
+        let curr = this.head;
+        let count = 0;
+        let prev = null
+        while(curr){
+            if(index == count+1){
+                prev.next = curr.next;
+                this.length--;
+                return true;
+            }
+            prev = curr;
+            curr = curr.next;
+            count++
+        }
+
+    }
 }
 
 const list = new doublyLinkedList();
@@ -540,8 +627,11 @@ list.addLast(20)
 list.addLast(30)
 list.addLast(40)
 list.addLast(50)
-list.addAfter(0,100)
+//list.addAfter(0,100)
 //console.log(list.prinList());
 //list.printReverse()
+//list.delete(4)
+//list.deleteAfter(3)
+list.deleteBefore(1)
 list.print()
 //list.print()
