@@ -18,7 +18,7 @@ class HashaTable{
         if(!bucket){
             this.table[index] = [[key,value]]
         }else{
-            const sameKeyItem = bucket.find(item => item[0]===key)
+            const sameKeyItem = bucket.find(item => item[0]===key);
             console.log(sameKeyItem);
             if(sameKeyItem){
                 sameKeyItem[1] = value

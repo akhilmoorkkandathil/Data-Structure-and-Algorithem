@@ -6,7 +6,7 @@ function quickSort(arr) {
     let pivot = arr[pIndex];
     let left = [];
     let right = [];
-    arr.splice(0,1)
+    arr.splice(0,1);
     
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] <= pivot) {
@@ -19,4 +19,4 @@ function quickSort(arr) {
     return [...quickSort(left), pivot, ...quickSort(right)];
 }
 
-console.log(quickSort([15,42,12,6,1, 4, 6, 4, 6, 4, 7, 9, 5, 7]));
+console.log(quickSort([15,42,12,6,1, 4, 16, 4, 6, 14, 17, 9, 15, 7]));

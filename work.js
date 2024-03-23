@@ -514,40 +514,923 @@
 
 //Merge Sort
 
-function mergeSort(arr){
-    if(arr.length<2) return arr;
-    let middle = Math.floor(arr.length/2);
-    let left = arr.slice(0,middle);
-    let right = arr.slice(middle);
-    return merge(mergeSort(left),mergeSort(right));
-}
+// function mergeSort(arr){
+//     if(arr.length<2) return arr;
+//     let middle = Math.floor(arr.length/2);
+//     let left = arr.slice(0,middle);
+//     let right = arr.slice(middle);
+//     return merge(mergeSort(left),mergeSort(right));
+// }
 
-function merge(left,right){
-    let temp = [];
-    while(left.length && right.length){
-        if(left[0]<right[0]){
-            temp.push(left.shift())
+// function merge(left,right){
+//     let temp = [];
+//     while(left.length && right.length){
+//         if(left[0]<right[0]){
+//             temp.push(left.shift())
+//         }else{
+//             temp.push(right.shift())
+//         }
+//     }
+//     return [...temp,...left,...right];
+// }
+
+
+// console.log(mergeSort([1,4,7,3,9,3,8,2,5,6]));
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+
+// class Stack{
+//     constructor(){
+//         this.top = null;
+//         this.length = 0;
+//     }
+//     push(val){
+//         const newNode = new Node(val);
+//         if(!this.top){
+//             this.top = newNode;
+//         }else{
+//            let ref = this.top;
+//            newNode.next = ref;
+//            this.top = newNode;
+//         }
+//         this.length++;
+//         return true;
+//     }
+//     pop(){
+//         if(!this.top) return false;
+//         if(this.length ==1){
+//             this.top = null;
+//             this.length=0;
+//             return true
+//         }
+//         let oldTop = this.top;
+//         this.top = this.top.next;
+//         oldTop.next = null;
+//          this.length--
+//          return true
+
+//     }
+//     print(){
+//         if(!this.top) return false;
+//         let curr = this.top;
+//         while(curr){
+//             console.log(curr.val);
+//             curr= curr.next;
+//         }
+//         return
+//     }
+// }
+
+// const myStack = new Stack();
+// console.log(myStack.push(10));
+// myStack.push(20);
+// myStack.push(30);
+// myStack.push(40);
+// myStack.push(50);
+// myStack.pop()
+// myStack.pop()
+// myStack.pop()
+// myStack.pop()
+// myStack.pop()
+// console.log(myStack.pop());
+// myStack.print()
+
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null
+//     }
+// }
+
+// class Queue{
+//     constructor(){
+//         this.front = null;
+//         this.back = null;
+//         this.length = 0;
+//     }
+//     enqueue(val){
+//         const newNode = new Node(val);
+//         if(!this.front){
+//             this.front = newNode;
+//             this.back = newNode;
+//             this.length++;
+//             return true;
+//         }
+//         newNode.next = this.back;
+//         this.back = newNode;
+//         this.length++;
+//         return true
+
+//     }
+
+//     dequeue(){
+//         if(!this.front) return false;
+//         if(this.length==1){
+//             this.front = null;
+//             this.back = null;
+//             this.length = 0;
+//             return true
+//         }
+        
+//     }
+// }
+
+// class Node {
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+// class Stack {
+//     constructor(){
+//         this.head = null;
+//         this.length = 0;
+//     }
+//     push(val){
+//         const newNode = new Node(val);
+//         if(!this.head){
+//             this.head = newNode;
+//             this.length++;
+//             return true
+//         }
+//         newNode.next = this.head;
+//         this.head = newNode;
+//         this.length++;
+//         return true
+//     }
+//     pop(){
+//         if(!this.head) return null;
+//         if(this.length==1){
+//             this.head = null;
+//             this.length = 0;
+//             return true
+//         }
+//         this.head = this.head.next;
+//         this.length--
+//         return true
+//     }
+//     print(){
+//         if(!this.head) return null;
+//         let curr = this.head;
+//         while(curr){
+//             console.log(curr.val);
+//             curr = curr.next;
+//         }
+//         return
+//     }
+// }
+
+// const myStack = new Stack();
+// console.log(myStack.push(10));
+// myStack.push(20)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+// myStack.push(60)
+// myStack.pop()
+// myStack.print()
+
+// class Node {
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+// class Queue {
+//     constructor(){
+//         this.head = null;
+//         this.tail = null;
+//         this.length = 0;
+//     }
+//     enqueue(val){
+//         const newNode = new Node(val);
+//         if(!this.head){
+//             this.head = newNode;
+//             this.tail = newNode;
+//             this.length++;
+//             return true
+//         }
+//         this.tail.next = newNode;
+//         this.tail = newNode;
+//         this.length++;
+//         return true
+//     }
+//     dequeue(){
+//         if(!this.head) return false;
+//         if(this.length == 1){
+//             this.head = null;
+//             this.tail = null;
+//             this.length = 0;
+//             return true
+//         }
+
+//         this.head = this.head.next;
+//         this.length--;
+//         return true
+//     }
+
+//     print(){
+//         if(!this.head) return null;
+//         let curr = this.head;
+//         while(curr){
+//             console.log(curr.val);
+//             curr = curr.next;
+//         }
+//         return
+//     }
+// }
+
+// const myQueue = new Queue();
+// myQueue.enqueue(10);
+// myQueue.enqueue(20);
+// myQueue.enqueue(30);
+// myQueue.enqueue(40);
+// myQueue.enqueue(50);
+// myQueue.enqueue(60);
+// myQueue.enqueue(70);
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.dequeue()
+// myQueue.print()
+
+
+// Queue using two stacks
+
+// class Queue {
+//     constructor(){
+//         this.pushStack = [];
+//         this.popStack = [];
+//     }
+//     push(val) {
+//         this.pushStack.push(val)
+//         return true
+//     }
+//     pop() {
+//         if(!this.popStack.length){
+//             while(this.pushStack.length){
+//                 this.popStack.push(this.pushStack.pop())
+//             }
+//         }
+//         return this.popStack.pop()
+//     }
+//     peek() {
+//         if(!this.popStack.length){
+//             while(this.pushStack.length){
+//                 this.popStack.push(this.pushStack.pop());
+//             }
+//         }
+//         return this.popStack[this.popStack.length-1]
+//     }
+
+//     print() {
+//         return [this.pushStack, this.popStack]
+//     }
+// }
+// const myQueue = new Queue();
+// myQueue.push(10);
+// myQueue.push(20);
+// myQueue.push(30);
+// myQueue.push(40);
+// myQueue.push(50);
+// myQueue.push(60);
+// myQueue.push(70);
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+
+// console.log(myQueue.print());
+
+
+
+//Bubble sort
+
+// function bubbleSort(arr){
+//     let swapped;
+// do{
+//     swapped = false;
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>arr[i+1]){
+//             [arr[i],arr[i+1]] = [arr[i+1],arr[i]];
+//             swapped = true;
+//         }
+        
+//     }
+// }while(swapped)
+// return arr
+// }
+// console.log(bubbleSort([7,3,5,2,6,5,1,9,0,2,5,1]));
+
+
+
+//Selection sort
+
+// function selectinSort(arr){
+//     for (let i = 0; i < arr.length; i++) {
+//         let min = i;
+//         for (let j = i+1; j < arr.length; j++) {
+//             if(arr[j]<arr[min]){
+//                 min = j
+//             }
+            
+//         }
+//         [arr[min],arr[i]] = [arr[i],arr[min]];
+        
+//     }
+//     return arr;
+// }
+
+// console.log(selectinSort([3,5,2,7,4,8,9,5,7,4]));
+
+// Insertion sort
+
+// function insertionSort(array){
+//     for (let i = 1; i < array.length; i++) {
+//         let NumberToInsert = array[i];
+//         let j = i-1;
+//         while(j>=0 && array[j]>NumberToInsert){
+//             array[j+1] = array[j]
+//             j--
+//         }
+//         array[j+1] = NumberToInsert;
+//     }
+//     return array
+// }
+
+// console.log(insertionSort([1,6,4,5,3,7,8,9,0,3,4,5]));
+
+
+// Quick sort
+
+// function quickSort(arr){
+//     if(arr.length<2) return arr;
+//     let pivotIndex = 0;
+//     let left = [];
+//     let right = [];
+//     let pivot= arr[pivotIndex];
+//     arr.splice(pivotIndex,1);
+//     for (let i = 0; i < arr.length; i++) {
+//         if(arr[i]<pivot){
+//             left.push(arr[i])
+//         }else{
+//             right.push(arr[i])
+//         }    
+//     }
+
+//     return [...quickSort(left),pivot,...quickSort(right)]
+// }
+
+// console.log(quickSort([3,1,5,3,7,9,7,4,2,0,6]));
+
+
+//Merge Sort
+
+// function mergeSort(arr){
+//     if( arr.length < 2 ) return arr;
+//     let middle = Math.floor(arr.length/2);
+//     let left = arr.slice(0,middle);
+//     let right = arr.slice(middle);
+//     return merge(mergeSort(left),mergeSort(right));
+// }
+
+// function merge(left, right){
+//     let temp = [];
+//     while(left.length && right.length){
+//         if(left[0]<right[0]){
+//             temp.push(left.shift())
+//         }else{
+//             temp.push(right.shift())
+//         }
+//     }
+//     return [...temp,...left,...right]
+// }
+
+// console.log(mergeSort([2,4,1,6,8,5,3,5,9,0,7,4,1,5]));
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+// class Stack{
+//     constructor(){
+//         this.head = null;
+//         this.length = 0;
+//     }
+//     push(val){
+//         const newNode = new Node(val);
+//         if(!this.head){
+//             this.head = newNode;
+//             this.length++;
+//             return true;
+//         }
+
+//         newNode.next = this.head;
+//         this.head = newNode;
+//         this.length++;
+//         return true
+//     }
+//     pop(){
+//         if(!this.head) return false;
+//         if(this.length ===0) {
+//             this.head = null;
+//             this.length =0;
+//             return true;
+//         }
+//         this.head = this.head.next;
+//         this.length--;
+//         return true
+//     }
+//     peek(){
+//         if(!this.head) return null;
+//         return this.head;
+//     }
+//     console(){
+//         if(!this.head) return null;
+//         let curr = this.head;
+//         while(curr){
+//             console.log(curr.val);
+//             curr = curr.next;
+//         }
+//     }
+// }
+
+// const myStack = new Stack();
+// myStack.push(10)
+// myStack.push(20)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+// myStack.push(60)
+// myStack.pop()
+// myStack.pop()
+// myStack.pop()
+// myStack.pop()
+// console.log(myStack.peek());
+// myStack.console()
+
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+// class Queue{
+//     constructor(){
+//         this.head = null;
+//         this.tail = null;
+//         this.length = 0;
+//     }
+//     push(val){
+//         const newNode = new Node(val);
+//         if(!this.head){
+//             this.head = newNode;
+//              this.tail = newNode;
+//              this.length++;
+//              return true
+//         }
+//         this.tail.next = newNode;
+//         this.tail = newNode;
+//          this.length++;
+//          return true;
+//     }
+//     pop(){
+//         if(!this.head) return false;
+//         if(this.length ==1){
+//             this.head = null;
+//             this.tail = null;
+//             this.length =0;
+//             return true
+//         }
+//         this.head = this.head.next;
+//         this.length--
+//         return true
+//     }
+//     peek(){
+//         if(!this.head) return null;
+//         return this.head;
+//     }
+//     console(){
+//         if(!this.head) return null;
+//         let curr = this.head;
+//         while(curr){
+//             console.log(curr.val);
+//             curr= curr.next;
+
+//         }
+//     }
+// }
+
+// const myQueue = new Queue();
+// myQueue.push(10)
+// myQueue.push(20)
+// myQueue.push(30)
+// myQueue.push(40)
+// myQueue.push(50)
+// myQueue.push(60)
+// myQueue.push(70);
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.pop()
+// myQueue.push(80)
+// myQueue.push(90)
+// myQueue.push(100)
+// myQueue.push(110)
+// myQueue.push(120)
+// console.log(myQueue.peek());
+// myQueue.console()
+
+// Queue using stack
+
+// class Queue{
+//     constructor(){
+//         this.popStack = [];
+//         this.pushStack = [];
+//     }
+//     push(val){
+//         this.pushStack.push(val);
+//     }
+//     pop(){
+//         if(!this.popStack.length){
+//             while(this.pushStack.length){
+//                 this.popStack.push(this.pushStack.pop())
+//             }
+//         }
+//         return this.popStack.pop();
+//     }
+//     peek(){
+//         if(!this.popStack.length){
+//             while(this.pushStack.length){
+//                 this.popStack.push(this.pushStack.pop())
+//             }
+//         }
+//         return this.popStack[this.popStack.length-1]
+//     }
+//     console(){
+//         return [this.pushStack,this.popStack];
+//     }
+// }
+
+// const myQueue = new Queue();
+// myQueue.push(10)
+// myQueue.push(20)
+// myQueue.push(30)
+// myQueue.push(40)
+// myQueue.push(50)
+// console.log(myQueue.console());
+// myQueue.pop()
+// console.log(myQueue.peek());
+// console.log(myQueue.console());
+
+
+//Stack using Queue
+
+// class Stack{
+//     constructor(){
+//         this.queue1 = [];
+//         this.queue2 = [];
+//     }
+//     enqueue(val){
+//         this.queue2.push(val);
+//         while(this.queue1.length!==0){
+//             this.queue2.push(this.queue1.shift());
+//         }
+//         this.queue = this.queue2;
+//         this.queue2 = this.queue1;
+//         this.queue1 = this.queue;
+//         return true
+//     }
+//     dequeue(){
+//         if(!this.queue1.length) return null
+//         this.queue1.shift()
+//     }
+//     peek(){
+//         if(!this.queue1.length) return null
+//         return this.queue1[0]
+//     }
+//     console(){
+//         return this.queue1;
+//     }
+// }
+
+// const myStack = new Stack();
+// myStack.enqueue(10)
+// myStack.enqueue(20)
+// myStack.enqueue(30)
+// myStack.enqueue(40)
+// myStack.enqueue(50)
+// myStack.enqueue(60)
+// myStack.enqueue(70)
+// myStack.enqueue(80)
+// console.log(myStack.console());
+// myStack.dequeue()
+// console.log(myStack.console());
+
+
+
+// class stack{
+//     constructor(){
+//     this.stack = [];
+//     this.length = 0
+//     }
+//     push(val){
+//         this.stack.push(val)
+//         this.length++
+//         return true
+//     }
+//     pop(){
+        
+//         this.length--
+//         return this.stack.pop();
+        
+//     }
+//     revereseString(str){
+//         for(let i=0;i<str.length;i++){
+//             this.push(str[i])
+//         }
+//         let rev = "";
+//         while(this.length){
+//             rev+=this.pop(); 
+//         }
+//         return rev
+//     }
+// }
+
+// const myStack = new stack();
+// console.log(myStack.revereseString("Akhil"));
+
+
+
+
+// function mergeSort(arr){
+//     if(arr.length<2) return arr
+//     let middle = Math.floor(arr.length/2);
+//     let left = arr.slice(0,middle);
+//     let right = arr.slice(middle);
+//     return merge(mergeSort(left),mergeSort(right));
+// }
+
+// function merge(left,right){
+//     let sorted = [];
+//     while(left.length && right.length){
+//         if(left[0]<right[0]){
+//             sorted.push(left.shift())
+//         }else{
+//             sorted.push(right.shift())
+//         }
+//     }
+//     return [...sorted,...left,...right]
+// }
+
+// console.log(mergeSort([2,5,8,4,6,9,8,5,3,4,2]));
+
+
+// function quickSort(arr){
+//     if(arr.length<2) return arr;
+//     let pivotIndex = 0;
+//     let pivot = arr[pivotIndex];
+//     let left = [];
+//     let right = [];
+//     arr.splice(pivotIndex,1)
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]<=pivot){
+//             left.push(arr[i])
+//         }else{
+//             right.push(arr[i])
+//         }
+//     }
+//     return [...quickSort(left),pivot,...quickSort(right)]
+// }
+// console.log(quickSort([1,5,3,6,4,8,9,5,2,6,8]));
+
+// function selection(arr){
+//     for(let i=0;i<arr.length;i++){
+//         let min = i
+//         for (let j = i+1; j < arr.length; j++) {
+//             if(arr[j]<arr[min]){
+//                 min = j
+//             }
+//         }
+//         [arr[i],arr[min]] = [arr[min],arr[i]];
+//     }
+//     return arr
+// }
+
+// console.log(bubbleSort([4,7,2,9,1,0,9,5,7,4,2,8,5,3]));
+
+// function insertion(arr){
+
+//     for(let i=1;i<arr.length;i++){
+//         let NumberToInsert = arr[i];
+//         let j = i - 1;
+//         while(j>=0 && arr[j]>NumberToInsert){
+//             arr[j+1] = arr[j];
+//             j--;
+//         }
+//         arr[j+1] = NumberToInsert;
+//     }
+//     return arr
+// }
+// console.log(selectinSort([4,7,6,2,1,3,4,8,9,7,6,5]));
+
+
+// function bubbleSort(arr){
+//     let swapped;
+//     do{
+//         swapped = false
+//         for(let i =0;i<arr.length;i++){
+//             if(arr[i+1]<arr[i]){
+//                 [arr[i],arr[i+1]] = [ arr[i+1],arr[i]]
+//                 swapped = true
+//             }
+//         }
+//     }while(swapped)
+//     return arr
+// }
+
+// console.log(bubbleSort([4,2,6,4,8,9,6,5,3,2,1]));
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+// class Stack{
+//     constructor(){
+//         this.head = null;
+//         this.length = 0;
+//     }
+//     push(val){
+//         const newNode = new Node(val);
+//         if(!this.head){
+//             this.head = newNode;
+//             this.length++;
+//             return true;
+//         }
+//         newNode.next = this.head;
+//         this.head = newNode;
+//         this.length++;
+//         return true;
+//     }
+//     pull(){
+//         if(!this.head) return false;
+//         this.head = this.head.next;
+//         this.length--;
+//         return true;
+//     }
+//     peek(){
+//         return this.head;
+//     }
+// }
+
+// const myStack = new Stack();
+// myStack.push(10)
+// myStack.push(20)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+// myStack.push(60)
+// console.log(myStack.peek());
+
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
+// class Queue{
+//     constructor(){
+//         this.head = null;
+//         this.tail = null;
+//         this.length = 0;
+//     }
+//     enqueue(val){
+//         const newNode = new Node(val);
+//         if(!this.head){
+//             this.head = newNode;
+//             this.tail = newNode;
+//             this.length++;
+//             return true
+//         }
+//         this.tail.next = newNode;
+//         this.tail = newNode;
+//         this.length++;
+//         return true;
+//     }
+//     dequeue(){
+//         if(!this.head) return false;
+//         if(this.length===1){
+//             this.head = null;
+//             this.tail = null;
+//             this.length++;
+//             return true;
+//         }
+//         this.head = this.head.next;       
+//         this.length--;
+//         return true;
+//     }
+
+//     peek(){
+//         return this.head;
+//     }
+// }
+
+
+// const myQueue = new Queue();
+// myQueue.enqueue(10)
+// myQueue.enqueue(20)
+// myQueue.enqueue(30)
+// myQueue.enqueue(40)
+// myQueue.enqueue(50)
+// myQueue.enqueue(60)
+// myQueue.dequeue()
+// myQueue.dequeue()
+
+// console.log(myQueue.peek());
+
+
+
+// class Stack{
+//     constructor(){
+//         this.stack = [];
+//         this.length = 0
+//     }
+//     push(val){
+//         this.stack.push(val);
+//         this.length++;
+//         return true
+//     }
+//     pop(){
+        
+//         this.length--
+//         return this.stack.pop();
+        
+//     }
+//     reverse(str){
+//         for(let i=0;i<str.length;i++){
+//             this.push(str[i])
+//         }
+//         let rev = "";
+//         while(this.length){
+//             rev+=this.pop()
+//         }
+//         return rev
+//     }
+// }
+
+// const myStack = new Stack();
+// console.log(myStack.reverse("Hello"));
+
+// let str = "hhahfffffff"
+// let count=1;
+// let arr =[]
+// for(let i=0;i<str.length;i++){
+//     if(str[i]==str[i+1]){
+//         count++
+//     }else{
+
+//         arr.push(count)
+//         count=0
+//     }
+// }
+// console.log(arr);
+
+
+function quickSort(arr){
+    if(arr.length<2) return arr;
+    let pivotIndex = 0;
+    let pivot = arr[pivotIndex]
+    let left = [];
+    let right = [];
+    arr.splice(0,1)
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]>pivot){
+            left.push(arr[i])
         }else{
-            temp.push(right.shift())
+            right.push(arr[i])
         }
     }
-    return [...temp,...left,...right];
+    return [...quickSort(left),pivot,...quickSort(right)];
+
 }
 
-
-console.log(mergeSort([1,4,7,3,9,3,8,2,5,6]));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(quickSort([1,5,3,7,9,5,6,7,9,4]));
