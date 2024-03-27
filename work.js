@@ -1401,7 +1401,7 @@
 // console.log(myStack.reverse("Hello"));
 
 // let str = "hhahfffffff"
-// let count=1;
+// let count=0;
 // let arr =[]
 // for(let i=0;i<str.length;i++){
 //     if(str[i]==str[i+1]){
@@ -1412,25 +1412,37 @@
 //         count=0
 //     }
 // }
-// console.log(arr);
+//  count =0
+//  let max
+// for(let i=0;i<arr.length;i++){
+//      max = 0;
+//      count+=arr[i]
+//     if(max<arr[i]){
+        
+//         max = arr[i]
+//         index = i
+//     }
+// }
+
+// console.log(max,index,count);
 
 
-function quickSort(arr){
-    if(arr.length<2) return arr;
-    let pivotIndex = 0;
-    let pivot = arr[pivotIndex]
-    let left = [];
-    let right = [];
-    arr.splice(0,1)
-    for(let i=0;i<arr.length;i++){
-        if(arr[i]>pivot){
-            left.push(arr[i])
-        }else{
-            right.push(arr[i])
-        }
-    }
-    return [...quickSort(left),pivot,...quickSort(right)];
+// function quickSort(arr){
+//     if(arr.length<2) return arr;
+//     let pivotIndex = 0;
+//     let pivot = arr[pivotIndex]
+//     let left = [];
+//     let right = [];
+//     arr.splice(0,1)
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>pivot){
+//             left.push(arr[i])
+//         }else{
+//             right.push(arr[i])
+//         }
+//     }
+//     return [...quickSort(left),pivot,...quickSort(right)];
 
-}
+// }
 
-console.log(quickSort([1,5,3,7,9,5,6,7,9,4]));
+// console.log(quickSort([1,5,3,7,9,5,6,7,9,4]));
