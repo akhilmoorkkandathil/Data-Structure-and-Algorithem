@@ -1,1 +1,0 @@
-this.tail = this.head;

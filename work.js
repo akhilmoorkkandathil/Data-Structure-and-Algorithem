@@ -1446,3 +1446,132 @@
 // }
 
 // console.log(quickSort([1,5,3,7,9,5,6,7,9,4]));
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.left = null;
+//         this.right = null
+//     }
+// }
+
+// class Tree{
+//     constructor(){
+//         this.root = null
+//     }
+//     insert(val){
+//         const newNode = new Node(val)
+//         let curr = this.root;
+//         if(!curr){
+//             this.root = newNode;
+//             return true;
+//         }
+//         while(true){
+//             if(val<curr.val){
+//                 if(!curr.left){
+//                     curr.left =newNode;
+//                     return true
+//                 }
+//                 curr = curr.left;
+//             }else{
+//                 if(!curr.right){
+//                     curr.right =newNode;
+//                     return true;
+//                 }
+//                 curr = curr.right;
+//             }
+//         }
+//     }
+//     search(root,val){
+//         if(!root) return false;
+//         if(root.val === val) return true;
+//         if(val<root.val) return this.search(root.left,val)
+//         return this.search(root.right,val)
+//     }
+//     min(root){
+//         if(!root.left) return root.val;
+//         return this.min(root.left);
+//     }
+//     max(root){
+//         if(!root.right) return root.right;
+//         return this.max(root.right);
+//     }
+//     //Traversal
+//     preorder(root){
+//         if(!root) return false;
+//         let arr = [];
+//         arr.push(root.val);
+//         if(root.left) arr.push(...this.preorder(root.left));
+//         if(root.right) arr.push(...this.preorder(root.right));
+//         return arr;
+//     }
+//     inorder(root){
+//         if(!root) return false;
+//         let result = [];
+//         if(root.left) result.push(...this.inorder(root.left));
+//         result.push(root.val);
+//         if(root.right) result.push(...this.inorder(root.right));
+//         return result;
+//     }
+//     postOrder(root){
+//         if(!root) return false;
+//         let result = [];
+//         if(root.left) result.push(...this.postOrder(root.left));
+//         if(root.right) result.push(...this.postOrder(root.right));
+//         result.push(root.val);
+//         return result;
+//     }
+//     levelorder(){
+//         let queue = [];
+//         queue.push(this.root);
+//         while(queue.length){
+//             let curr = queue.shift()
+//             console.log(curr.val);
+//             if(curr.left) queue.push(curr.left)
+//             if(curr.right)queue.push(curr.right)
+//         }
+//     }
+// }
+
+// const myTree = new Tree();
+// myTree.insert(50)
+// myTree.insert(30)
+// myTree.insert(15)
+// myTree.insert(35)
+// myTree.insert(60)
+// myTree.insert(55)
+// myTree.insert(65)
+// console.log(myTree.preorder(myTree.root));
+// myTree.levelorder()
+
+// let str = "sassaaaaafffdfffdffffff";
+// let obj = {};
+// let count =1
+// for(let i=0;i<str.length;i++){
+//     if(str[i]==str[i+1]){
+//         count++;
+//     }else{
+//         count=1;
+//     }
+//     if(!obj[str[i]]){
+//         obj[str[i]] = count;
+//     }else{
+        
+//         if(count>obj[str[i]]){
+//             obj[str[i]]=count;
+//         }
+//     }
+// }
+// //console.log(obj);
+// let max = -Infinity
+// for(let key of Object.keys(obj)){
+//     if(obj[key]>max){
+//         max = obj[key];
+//         letter = key;
+//     }
+// }
+// let res = "";
+// for(let i =0;i<max;i++){
+//     res+=letter;
+// }
+// console.log(res);

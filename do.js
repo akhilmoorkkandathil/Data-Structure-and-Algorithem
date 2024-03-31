@@ -570,127 +570,102 @@
 // console.log(list.print());
 
 
-class Node {
-    constructor(val){
-        this.val = val;
-        this.next = null;
-    }
-}
+// class Node {
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
 
-class linkedList{
-    constructor(){
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
-    }
+// class linkedList{
+//     constructor(){
+//         this.head = null;
+//         this.tail = null;
+//         this.length = 0;
+//     }
 
-    addNode(val){
-        const newNode = new Node(val)
-        if(!this.head){
-            this.head = newNode;
-        }else{
-            this.tail.next = newNode
-        }
-        this.tail = newNode;
-        this.length++
-        console.log("new node added");
-    }
-    display(){
-        if(!this.head) return console.log("List is empty");
-        let curr = this.head;
-        while(curr){
-            console.log(curr.val);
-            curr=curr.next
-        }
-        return;
-    }
+//     addNode(val){
+//         const newNode = new Node(val)
+//         if(!this.head){
+//             this.head = newNode;
+//         }else{
+//             this.tail.next = newNode
+//         }
+//         this.tail = newNode;
+//         this.length++
+//         console.log("new node added");
+//     }
+//     display(){
+//         if(!this.head) return console.log("List is empty");
+//         let curr = this.head;
+//         while(curr){
+//             console.log(curr.val);
+//             curr=curr.next
+//         }
+//         return;
+//     }
 
-    // delete(val){
-    //    let curr = this.head;
-    //    let prev = null
-    //    while(curr){
-    //     if(curr.val == val){
-    //         if(prev==null){
-    //             this.head = curr.next;
-    //             if(this.head == null){
-    //                 this.tail == null
-    //             }
-    //         }else{
-    //             prev.next = curr.next;
-    //             if(curr.next==null){
-    //                 this.tail = prev;
-    //             }
-    //         }
-    //         return true
-    //     }
-    //     prev=curr;
-    //     curr=curr.next
-    //     if(curr.next==null){
-
-    //     }
-    //    }
-    //    return false
-    // }
-    delete(val){
-        let curr = this.head;
-        let prev = null;
-        while(curr){
-            if(curr.val==val){
-                if(prev == null){
-                    this.head = curr.next;
-                    if(curr.next == null){
-                        this.tail == null;
-                    }
+   
+//     delete(val){
+//         let curr = this.head;
+//         let prev = null;
+//         while(curr){
+//             if(curr.val==val){
+//                 if(prev == null){
+//                     this.head = curr.next;
+//                     if(curr.next == null){
+//                         this.tail == null;
+//                     }
     
-                }else{
-                    prev.next = curr.next;
-                    if(curr.next == null){
-                        this.tail = prev;
-                    }
-                }
-                return true
-            }
+//                 }else{
+//                     prev.next = curr.next;
+//                     if(curr.next == null){
+//                         this.tail = prev;
+//                     }
+//                 }
+//                 return true
+//             }
             
-            prev = curr;
-            curr=curr.next;
-        }
-        return false
-    }
-    deleteIndexValue(index){
-        let curr = this.head;
-        let prev = null;
-        let counter = 0
-        while(curr){
-            if(counter == index){
-                if(prev==null){
-                    this.head=curr.next
-                    if(curr.next === null){
-                        this.tail == null
-                    }else{
-                        prev.next = curr.next
-                        if(curr.next == tail){
-                            this.tail = prev
-                        }
+//             prev = curr;
+//             curr=curr.next;
+//         }
+//         return false
+//     }
+//     deleteIndexValue(index){
+//         let curr = this.head;
+//         let prev = null;
+//         let counter = 0
+//         while(curr){
+//             if(counter == index){
+//                 if(prev==null){
+//                     this.head=curr.next
+//                     if(curr.next === null){
+//                         this.tail == null
+//                     }else{
+//                         prev.next = curr.next
+//                         if(curr.next == tail){
+//                             this.tail = prev
+//                         }
                         
-                    }
-                }
-                return true
-            }
-            prev = curr
-            curr = curr.next;
+//                     }
+//                 }
+//                 return true
+//             }
+//             prev = curr
+//             curr = curr.next;
             
-        }
-        return false
-    }
+//         }
+//         return false
+//     }
     
-}
+// }
 
-const list = new linkedList()
-list.addNode(1)
-list.addNode(2)
-list.addNode(3)
-list.addNode(4)
-console.log(list.deleteIndexValue(1));
-list.display()
-console.log(list.head);
+// const list = new linkedList()
+// list.addNode(1)
+// list.addNode(2)
+// list.addNode(3)
+// list.addNode(4)
+// console.log(list.deleteIndexValue(1));
+// list.display()
+// console.log(list.head);
 
