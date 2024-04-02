@@ -1575,3 +1575,770 @@
 //     res+=letter;
 // }
 // console.log(res);
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.left = null;
+//         this.right = null;
+//     }
+// }
+// class Tree{
+//     constructor(){
+//         this.root = null;
+//     }
+//     insert(val){
+//         const newNode = new Node(val);
+//         if(!this.root){
+//             this.root = newNode;
+//             return;
+//         }
+//         let curr = this.root;
+//         while(true){
+//             if(val<curr.val){
+//                 if(!curr.left){
+//                     curr.left = newNode;
+//                     return
+//                 }
+//                 curr = curr.left;
+//             }else{
+//                 if(!curr.right){
+//                     curr.right = newNode;
+//                     return
+//                 }
+//                 curr = curr.right;
+//             }
+//         }
+//     }
+//     search(root,val){
+//         if(!root) return false;
+//         if(root.val == val) return true;
+//         if(val<root.val) return this.search(root.left,val);
+//         return this.search(root.right,val);
+    
+//     }
+
+//     min(root){
+//         if(!root.left) return root.val;
+//         return this.min(root.left)
+//     }
+//     max(root){
+//         if(!root.right) return root.val;
+//         return this.max(root.right)
+//     }
+
+//     preOrderTraversal(root){
+//         if(!root) return false;
+//         let arr = [];
+//         arr.push(root.val)
+//         if(root.left) arr.push(...this.preOrderTraversal(root.left))
+//         if(root.right) arr.push(...this.preOrderTraversal(root.right));
+//         return arr;
+//     }
+//     bfs(){
+//         let root = this.root;
+//         let queue = [root];
+//         while(queue.length){
+//             let curr = queue.shift();
+//             console.log(curr.val);
+//             if(curr.left) queue.push(curr.left);
+//             if(curr.right) queue.push(curr.right);
+//         }
+//     }
+//     dfs(){
+//         let root = this.root;
+//         let stack = [root];
+//         let res = []
+//         while(stack.length){
+//             let curr = stack.pop();
+//             res.push(curr.val)
+//             if(curr.right) stack.push(curr.right);
+//             if(curr.left) stack.push(curr.left);
+            
+//         }
+//         return res
+//     }
+//     dfsRecursion(root){
+//         if(!root) return [];
+//         let left = this.dfsRecursion(root.left);
+//         let right = this.dfsRecursion(root.right);
+//         return[root.val,...left,...right];
+//     }
+//     deleteNode(root,val){
+//         if(!root) return false;
+//         if(root.val == val){
+//             //deleting leaf node
+//             if(!root.right && !root.right) return null;
+//             if(!root.right) return root.left;
+//             if(!root.left) return root.right
+//             let temp = root.right;
+//             while(temp.left){
+//                 temp = temp.left
+//             } ;
+//             root.val = temp.val;
+//             return root;
+//         }else if(root.val<val){
+//             root.left = this.deleteNode(root.left,val)
+//             return root
+//         }else{
+//             root.right = this.deleteNode(root.right,val);
+//             return root;
+//         }
+//     }
+//     check(){
+//         let curr = this.root;
+//         let queue = [curr];
+//         while(queue.length){
+//             let curr = queue.shift();
+//             if(curr.right){
+//                 if(curr.right.val<curr.val ){
+//                     return false
+//                 }
+//                 queue.push(curr.right)
+//             }
+//             if(curr.left){
+//                 if(curr.left.val>curr.val ){
+//                     return false
+//                 }
+//                 queue.push(curr.left);
+//             }
+            
+//         }
+//         return true
+//     }
+// }
+
+// const myTree = new Tree();
+// myTree.insert(50)
+// myTree.insert(40)
+// myTree.insert(30)
+// myTree.insert(60)
+// myTree.insert(10)
+// myTree.insert(70)
+// myTree.insert(90)
+// console.log(myTree.check());
+// console.log(myTree.search(myTree.root,400));
+// console.log(myTree.preOrderTraversal(myTree.root));
+//myTree.dfs()
+// console.log(myTree.bfs());
+// console.log(myTree.dfsRecursion(myTree.root));
+//console.log(myTree.deleteNode(myTree.root ,60));
+// myTree.deleteNode(myTree.root ,60)
+
+// console.log(myTree.dfsRecursion(myTree.root));
+
+
+
+//Heap
+
+
+// class maxHeap{
+//     constructor(){
+//         this.data = [];
+//     }
+//     getParentIndex =(i)=> Math.floor((i-1)/2);
+//     getLeftChildeIndex = (i) => i*2+1;
+//     getRightChildIndex = (i) => i*2+2;
+
+//     add(val){
+//         this.data.push(val);
+//         this.heapifyUp();
+//     }
+//     swap(index1,index2){
+//         [this.data[index1],this.data[index2]] = [this.data[index2],this.data[index1]];
+//     }
+//     heapifyUp(){
+//         let currentIndex = this.data.length-1;
+//         if(this.data[this.getParentIndex(currentIndex)<this.data[currentIndex]]){
+//             this.swap(currentIndex,this.getParentIndex(currentIndex));
+//         }
+//     }
+//     getMax(){
+//         let maxValue = this.data.shift();
+//         this.data.unshift(this.data.pop());
+//         this.heapifyDown();
+//         return maxValue;
+
+//     }
+//     heapifyDown(){
+//         let currentIndex = 0;
+//         while(this.getLeftChildeIndex(currentIndex)){
+//             let biggestChildIndex  = this.getLeftChildeIndex(currentIndex);
+//             if(this.getRightChildIndex(currentIndex) && this.getRightChildIndex(currentIndex)>this.getLeftChildeIndex(currentIndex)){
+//                 biggestChildIndex = this.getRightChildIndex(currentIndex);
+//             }
+//             if(this.data[currentIndex]<this.data[biggestChildIndex]){
+//                 this.swap(currentIndex,biggestChildIndex);
+//                 currentIndex = biggestChildIndex;
+//             }else{
+//                 return
+//             }
+//         }
+//     }
+// }
+
+// const myMaxHeap = new maxHeap();
+// myMaxHeap.add(12)
+// myMaxHeap.add(22)
+// myMaxHeap.add(34)
+// myMaxHeap.add(24)
+// myMaxHeap.add(48)
+// myMaxHeap.add(35);
+// console.log(myMaxHeap.data);
+
+
+// class minHeap{
+//     constructor(){
+//         this.data = [];
+//     }
+//     swap(i1,i2){
+//         [this.data[i1],this.data[i2]]=[this.data[i2],this.data[i1]]
+//     }
+//     add(val){
+//         this.data.push(val);
+//         this.hepifyUp();
+//     }
+//     hepifyUp(){
+//         let currIndex = this.data.length-1;
+//         let parentIndex = Math.floor((currIndex-1)/2);
+//         while(this.data[parentIndex]>this.data[currIndex]){
+//             this.swap(currIndex,parentIndex);
+//             currIndex = parentIndex;
+//         }
+//     }
+// }
+
+// const myHeap = new minHeap();
+// myHeap.add(10)
+// myHeap.add(40)
+// myHeap.add(30)
+// myHeap.add(50)
+// myHeap.add(5)
+// myHeap.add(15)
+// myHeap.add(25)
+// console.log(myHeap.data);
+
+
+// console.log("===========");
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.children = {};
+//         this.isEnd = false;
+//     }
+// }
+
+// class Trie{
+//     constructor(){
+//         this.root = new Node(null);
+//     }
+//     insert(word){
+//         let curr = this.root;
+//         for(let char of word){
+//             if(!curr.children[char]){
+//                 curr.children[char] = new Node(char);
+//             }
+//             curr = curr.children[char];
+//         }
+//         curr.isEnd = true;
+//     }
+//     search(word){
+//         let curr = this.root;
+//         if(!curr) return false;
+//         for(let char of word){
+//             if(!curr.children[char]){
+//                 return false
+//             }
+//             curr = curr.children[char];
+//         }
+//         return curr.isEnd;
+//     }
+//     startWith(prefix){
+//         let curr = this.root;
+//         if(!curr) return false;
+//         for(let char of prefix){
+//             if(!curr.children[char]){
+//                 return false;
+//             }
+//             curr = curr.children[char];
+//         }
+//         return true
+//     }
+//     suggestion(prefix){
+//         let curr = this.root;
+//         if(!curr) return [];
+//         for( let char of prefix){
+//             if(!curr.children[char]){
+//                 return []
+//             }
+//             curr = curr.children[char]
+//         }
+//         let suggestion = [];
+//         this.createSuggestion(curr,prefix,suggestion);
+//         return suggestion;
+//     }
+//     createSuggestion(node,prefix,suggestion){
+//         if(node.isEnd){
+//             suggestion.push(prefix);
+//         }
+//         for(let child in node.children){
+//             this.createSuggestion(node.children[child],prefix+child,suggestion)
+//         }
+//     }
+// }
+
+// const myTrie = new Trie();
+// myTrie.insert("Hello")
+// myTrie.insert("Hello world")
+// myTrie.insert("Hello universe")
+// myTrie.insert("Hello worlds")
+// console.log(myTrie.suggestion("Hello"));
+
+
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.children = {};
+//         this.isEnd = false;
+//     }
+// }
+// class Trie{
+//     constructor(){
+//         this.root = new Node(null);
+//     }
+//     insert(str){
+//         let curr = this.root;
+//         for(let char of str){
+//             if(!curr.children[char]){
+//                 curr.children[char] = new Node(char);
+//             }
+//             curr = curr.children[char];
+//         }
+//         curr.isEnd = true;
+//     }
+//     search(word){
+//         let current = this.root;
+//         if(!current) return false;
+//         for(let char of word){
+//             if(!current.children[char]){
+//                 return false;
+//             }
+//             current = current.children[char]
+//         }
+//         return current.isEnd;
+//     }
+//     prefix(prefix){
+//         let curr = this.root;
+//         if(!curr) return false;
+//         for(let char of prefix){
+//             if(!curr.children[char]){
+//                 return false;
+//             }
+//             curr = curr.children[char];
+//         }
+//         return true;
+//     }
+//     suggestion(prefix){
+//         let curr = this.root;
+//         if(!curr) return [];
+//         for(let char of prefix){
+//             if(!curr.children[char]){
+//                 return []
+//             }
+//             curr = curr.children[char];
+//         }
+//         let suggestion = [];
+//         this.createSuggestion(curr,prefix,suggestion);
+//         return suggestion;
+//     }
+//     createSuggestion(node,prefix,suggestion){
+//         if(node.isEnd){
+//             suggestion.push(prefix);
+//         }
+//         for(let child in node.children){
+//             this.createSuggestion(node.children[child],prefix+child,suggestion)
+//         }
+//     }
+// }
+
+// const myTrie = new Trie();
+// myTrie.insert("Hello")
+// myTrie.insert("Hello world")
+// myTrie.insert("Hello universe")
+// myTrie.insert("Hello worlds")
+// console.log(myTrie.suggestion("Hello"));
+
+
+// class Graph{
+//     constructor(){
+//         this.adjescencyList = {};
+//     }
+//     addVartex(v){
+//         if(!this.adjescencyList[v]){
+//             this.adjescencyList[v] = new Set();
+//         }
+//     }
+//     addEdge(v1,v2){
+//         if(!this.adjescencyList[v1]){
+//             this.adjescencyList[v1] = new Set();
+//         }
+//         if(!this.adjescencyList[v2]){
+//             this.adjescencyList[v2] = new Set();
+//         }
+//         this.adjescencyList[v1].add(v2);
+//         this.adjescencyList[v2].add(v1);
+//     }
+//     removeedge(v1,v2){
+//         if(this.adjescencyList[v1] && this.adjescencyList[v2]){
+//             this.adjescencyList[v1].delete(v1);
+//             this.adjescencyList[v2].delete(v2);
+//         }
+//     }
+//     hadEdge(v1,v2){
+//         return this.adjescencyList[v1].has(v2) && this.adjescencyList[v2].has(v1);
+//     }
+
+//     removeVertex(v){
+//         if(!this.adjescencyList[v]) return false;
+//         for(let connected of this.adjescencyList[v]){
+//             this.adjescencyList[connected].delete(v);
+//         }
+//         delete this.adjescencyList[v];
+//     }
+//     display(){
+//         for(let vertex in this.adjescencyList){
+//             console.log(vertex +" => "+[...this.adjescencyList[vertex]]);
+//         }
+//     }
+
+//     dfs(startNode){
+//         let stack = [startNode];
+//         let dfsRes = [];
+//         let visited = {}
+//         let vertices = Object.keys(this.adjescencyList)
+//         for(let v of vertices){
+//             visited[v] = false
+//         }
+//         //console.log(visited);
+
+//         visited[startNode] = true;
+//         while(stack.length){
+//             let curr = stack.pop();
+//             dfsRes.push(curr);
+//             for(let connected of this.adjescencyList[curr]){
+//                 if(!visited[connected]){
+//                     stack.push(connected);
+//                     visited[connected] = true;
+//                 }
+//             }
+//         }
+//         return dfsRes;
+//     }
+//     bfs(startNode){
+//         let queue = [startNode];
+//         let visited = {};
+//         let vertices = Object.keys(this.adjescencyList);
+//         for(let v of vertices){
+//             visited[v] = false
+//         }
+//         visited[startNode] = true
+//         let bfsRes = []
+//         while(queue.length){
+//             let curr = queue.shift();
+//             bfsRes.push(curr);
+//             for(let neighbor of this.adjescencyList[curr]){
+//                 if(!visited[neighbor]){
+//                     queue.push(neighbor);
+//                     visited[neighbor]= true;
+//                 }
+//             }
+//         }
+//         return bfsRes;
+//     }
+// }
+
+// const myGraph = new Graph()
+// myGraph.addEdge("a","b")
+// myGraph.addEdge("b","c")
+// myGraph.addEdge("c","d")
+// myGraph.addEdge("d","a")
+// console.log(myGraph.display());
+// console.log(myGraph.bfs("a"));
+//myGraph.removeVertex("c")
+//console.log(myGraph.display());
+
+
+// class maxHeap{
+//     constructor(){
+//         this.data = [];
+//     }
+//     getParetnIntex = (i) => Math.floor((i-1)/2)
+//     swap(i1,i2){
+//         [this.data[i1],this.data[i2]]=[this.data[i2],this.data[i1]];
+//     }
+//     insert(val){
+//         this.data.push(val);
+//         this.heapifyUp();
+//     }
+//     heapifyUp(){
+//         let currentIndex = this.data.length-1;
+    
+//         while(this.data[this.getParetnIntex(currentIndex)]<this.data[currentIndex]){
+//             this.swap(currentIndex,this.getParetnIntex(currentIndex))
+//             currentIndex = this.getParetnIntex(currentIndex);
+//         }
+//     }
+//     getMax(){
+//         let maxValue = this.data[0];
+//         this.data.unshift(this.data.pop())
+//         this.heapifyDown(this.data,0,this.data.length-1);
+//         return maxValue;
+//     }
+//     heapifyDown(heap,i,heapSize){
+//         let left = 2 * i + 1;
+//       let right = 2 * i + 2;
+//       let largest = i;
+//       if (left < heapSize && heap[left] > heap[largest]) {
+//         largest = left;
+//       }
+//       if (right < heapSize && heap[right] > heap[largest]) {
+//         largest = right;
+//       }
+//       if (largest !== i) {
+//         [heap[i], heap[largest]] = [heap[largest], heap[i]];
+//         this.heapifyDown(heap, largest, heapSize);
+//       }
+//     }
+// }
+
+// const myHeap = new maxHeap();
+// myHeap.insert(10)
+// myHeap.insert(20)
+// myHeap.insert(90)
+// myHeap.insert(60)
+// myHeap.insert(10)
+// myHeap.insert(40)
+// myHeap.insert(70)
+// console.log(myHeap.data);
+// console.log(myHeap.getMax());
+// console.log(myHeap.data);
+
+
+// class minHeap{
+//     constructor(){
+//         this.data = [];
+//     }
+//     getParentIndex = (i) => Math.floor(i/2);
+//     swap(i1,i2){
+//         [this.data[i1],this.data[i2]]=[this.data[i2],this.data[i1]];
+//     }
+//     insert(val){
+//         this.data.push(val);
+//         this.heapifyUp();
+//     }
+//     heapifyUp(){
+//         let currIndex = this.data.length-1;
+//         while(this.data[this.getParentIndex(currIndex)]>this.data[currIndex]){
+//             this.swap(currIndex,this.getParentIndex(currIndex));
+//             currIndex = this.getParentIndex(currIndex)
+//         }
+//     }
+//     getMin(){
+//         let min = this.data[0];
+//         this.data[0]=this.data.pop();
+//         this.hepifyDown(this.data,0,this.data.length-1)
+//         return min
+//     }
+//     hepifyDown(heap,i,heapSize){
+//         let smallest = i;
+//         let left = i*2+1;
+//         let right =i*2 + 2;
+//         if(left<heapSize && heap[left]<heap[smallest]){
+//             smallest = left;
+//         }
+//         if(right<heapSize && heap[right]<heap[smallest]){
+//             smallest = right;
+//         }
+//         if(i!==smallest){
+//             this.swap(i,smallest);
+//             this.hepifyDown(heap,smallest,heapSize)
+//         }
+//     }
+// }
+
+// const myHeap = new minHeap();
+// myHeap.insert(20)
+// myHeap.insert(30)
+// myHeap.insert(50)
+// myHeap.insert(40)
+// myHeap.insert(70)
+// myHeap.insert(10)
+// console.log(myHeap.data);
+// console.log(myHeap.getMin());
+// console.log(myHeap.getMin());
+// console.log(myHeap.data);
+
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.left = null;
+//         this.right = null;
+//     }
+// }
+
+// class Tree{
+//     constructor(){
+//         this.root = null;
+//     }
+//     insert(val){
+//         let newNode = new Node(val)
+//         if(!this.root){
+//             this.root =newNode;
+//             return;
+//         }
+//         let curr = this.root;
+//         while(true){
+//             if(val<curr.val){
+//                 if(!curr.left) {
+//                     curr.left = newNode;
+//                     return;
+//                 }
+//                 curr = curr.left
+//             }else{
+//                 if(!curr.right) {
+//                     curr.right = newNode;
+//                     return;
+//                 }
+//                 curr = curr.right
+//             }
+//         }
+//     }
+//     deleteNode(root, val) {
+//         if (!root) return null;
+        
+//         if (root.val === val) {
+//             if (!root.left && !root.right) return null;
+//             if (!root.left) return root.right;
+//             if (!root.right) return root.left;
+            
+//             let tempNode = root.right;
+//             while (tempNode.left) {
+//                 tempNode = tempNode.left;
+//             }
+//             root.val = tempNode.val;
+//             root.right = this.deleteNode(root.right, tempNode.val);
+//             return root;
+//         } else if (val < root.val) {
+//             root.left = this.deleteNode(root.left, val);
+//             return root;
+//         } else {
+//             root.right = this.deleteNode(root.right, val);
+//             return root;
+//         }
+//     }
+//     bfs(){
+//         if(!this.root) return []
+//         let queue = [this.root];
+//         let result = []
+//         while(queue.length){
+//             //note it is shift
+//             let curr = queue.shift();
+//             result.push(curr.val)
+//             if(curr.left){
+//                 queue.push(curr.left);
+//             }
+//             if(curr.right){
+//                 queue.push(curr.right);
+//             }
+//         }
+//         return result
+//     }
+// }
+
+// const myTree = new Tree();
+// myTree.insert(3)
+// myTree.insert(8)
+
+
+// myTree.insert(10)
+// myTree.insert(30)
+// myTree.insert(40)
+// myTree.insert(80)
+// myTree.insert(30)
+// myTree.insert(70)
+// console.log(myTree.bfs());
+// //console.log(myTree);
+// //myTree.deleteNode(myTree.root,10)
+// //myTree.deleteNode(myTree.root,10)
+// myTree.deleteNode(myTree.root,8)
+
+
+// console.log(myTree.bfs());
+
+
+// let arr =[2,6,4,9,4,6,8,10];
+
+
+// class Heap{
+//     constructor(){
+//         this.data = [];
+//     }
+//     getParentIntex = (i) => Math.floor((i-1)/2)
+//     swap(i1,i2){
+//         [this.data[i1],this.data[i2]]=[this.data[i2],this.data[i1]]
+//     }
+//     insert(val){
+//         this.data.push(val);
+//         this.heapifyUp();
+//     }
+//     heapifyUp(){
+//         let currIndex = this.data.length;
+//         if(this.data[this.getParentIntex(currIndex)]<this.data[currIndex]){
+//             this.swap(currIndex,this.getParentIntex(currIndex))
+//         }
+//     }
+//     getMax(){
+//         let max = this.data[0];
+//         this.data[0]=this.data.pop();
+//         this.heapifyDown(this.data,0,this.heapifyUp.length);
+//         return max;
+//     }
+
+//     heapifyDown(heap,i,heapSize){
+//         let biggest = i;
+//         let left = i*2 + 1;
+//         let right = i*2 + 2
+//         if(left<heapSize && heap[left]<heap[biggest]){
+//             biggest = left
+//         }
+//         if(right<heapSize && heap[right]<heap[biggest]){
+//             biggest = right
+//         }
+//         if(i!==biggest){
+//             this.swap(i,biggest);
+//         }
+//     }
+// }
+
+// const myHeap = new Heap();
+// myHeap.insert(10);
+// myHeap.insert(30);
+// myHeap.insert(40);
+// myHeap.insert(5);
+// myHeap.insert(16);
+// console.log(myHeap.data);
+// console.log(myHeap.getMax());
+
+
+
+
+class Graph{
+    constructor(){
+        this.adjesencyList = {};
+    }
+}
+
+
+
+

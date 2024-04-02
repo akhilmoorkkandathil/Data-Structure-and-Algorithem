@@ -37,10 +37,9 @@ class Tree{
     }
     //contain
     search(root,val){
-        if(!root) return false
-        if(root.val == val) return true
-        if(val<root.val) return this.search(root.left,val);
-        return this.search(root.right,val);
+        if(!root) return false;
+        if(root.val == val) return true;
+        return this.search(root.left,val) || this.search(root.right,val);
     }
     min(root){
         if(!root.left) return root.val;
@@ -140,35 +139,6 @@ class Tree{
         return trans(root)
     }
 
-    //Delete
-    delete(val){
-        this.root = this.deleteNode(this.root,val);
-    }
-
-
-
-    deleteNode(root,val){
-        if(!root) return root;
-        if(val < root.val){
-            root.left = this.deleteNode(root.left,val)
-        }else if(val>root.val){
-            root.right = this.deleteNode(root.right,val)
-        }else{
-            //no left and right child
-            if(!root.left && !root.right){
-            //change the pointer to the null from the value
-                return null;
-            }
-            if(!root.left){
-                return root.right;
-            }else if(!root.right){
-                return root.left;
-            }
-            root.val = this.min(root.right);
-            root.right = this.deleteNode(root.right,root.val);
-        }
-        return root
-    }
     //BF search 
     bfsearch(root,val){
         if(!root) return false;
@@ -224,7 +194,7 @@ class Tree{
         return Math.min(root.val,Lmin,Rmin);
     }
 
-    maxRootLeaf(root){
+    maxPathSum(root){
         if(!root) return -Infinity;
         if(!root.left && !root.right) return root.val;
         const maxPathSum = Math.max(this.maxRootLeaf(root.left),this.maxRootLeaf(root.right));
@@ -243,6 +213,7 @@ class Tree{
                 tempNode = tempNode.left;
             }
             root.val = tempNode.val;
+            root.right = this.deleteNode(root.right,tempNode.val);
             return root;
         }else if(val<root.val){
             root.left = this.deleteNode(root.left,val);
@@ -266,7 +237,17 @@ myTree.insert(22);
 myTree.insert(31)
 myTree.insert(36)
 myTree.insert(42)
-// console.log(myTree.search(myTree.root,56));
+console.log(myTree.bfs());
+myTree.deleteNode(myTree.root,22)
+myTree.deleteNode(myTree.root,10)
+
+myTree.deleteNode(myTree.root,34)
+myTree.deleteNode(myTree.root,31)
+
+console.log(myTree.bfs());
+
+//console.log(myTree.search(myTree.root,500));
+//console.log(myTree.search(myTree.root,42));
 // console.log(myTree.preOrder(myTree.root));
 // console.log(myTree.inOrder(myTree.root));
 // console.log(myTree.postrder(myTree.root));
@@ -292,7 +273,7 @@ myTree.insert(42)
 // console.log(myTree.minValueRecursively(myTree.root));
 // console.log(myTree.maxRootLeaf(myTree.root));
 
-console.log(myTree.bfs());
+//console.log(myTree.bfs());
 // myTree.deleteNode(myTree.root,36)
 // console.log(myTree.bfs());
 

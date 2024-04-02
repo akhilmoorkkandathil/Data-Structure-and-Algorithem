@@ -19,9 +19,8 @@ class Graph{
         this.adjescencyList[vertex2].add(vertex1);
     }
     hasEdge(vertex1,vertex2){
-        return (
-            this.adjescencyList[vertex1].has(vertex2) && this.adjescencyList[vertex2].has(vertex1)
-        )
+        return this.adjescencyList[vertex1].has(vertex2) && this.adjescencyList[vertex2].has(vertex1)
+        
     }
     removeEdge(vertex1,vertex2){
         this.adjescencyList[vertex1].delete(vertex2);
@@ -47,8 +46,8 @@ class Graph{
     bfs(startNode){
         const queue = [startNode];
         const visited = {}
-        let keys = Object.keys(this.adjescencyList);
-        for(let v of keys){
+        let vertixes = Object.keys(this.adjescencyList);
+        for(let v of vertixes){
             visited[v] = false;
         }
         visited[startNode] = true;
