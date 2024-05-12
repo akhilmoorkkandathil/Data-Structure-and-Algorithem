@@ -1,5 +1,5 @@
 function reversedString(str){
-    if(str == "") return str
-    return reversedString(str.substring(1))+str[0]
+    if(str.length<1) return str
+    return reversedString(str.slice(1,str.length))+str[0]
 }
-console.log(reversedString("H"));
+console.log(reversedString("Hello"));

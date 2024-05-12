@@ -185,7 +185,7 @@
 //         while(curr){
 //             console.log(curr.val);
 //             curr=curr.next;
-//         }
+//         }cr
 //     }
 //     reverse(){
 //         if(!this.head) return false;

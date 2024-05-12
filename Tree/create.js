@@ -197,7 +197,7 @@ class Tree{
     maxPathSum(root){
         if(!root) return -Infinity;
         if(!root.left && !root.right) return root.val;
-        const maxPathSum = Math.max(this.maxRootLeaf(root.left),this.maxRootLeaf(root.right));
+        const maxPathSum = Math.max(this.maxPathSum(root.left),this.maxPathSum(root.right));
         return root.val+maxPathSum;
 
     }
@@ -238,13 +238,14 @@ myTree.insert(31)
 myTree.insert(36)
 myTree.insert(42)
 console.log(myTree.bfs());
-myTree.deleteNode(myTree.root,22)
-myTree.deleteNode(myTree.root,10)
+// myTree.deleteNode(myTree.root,22)
+// myTree.deleteNode(myTree.root,10)
 
-myTree.deleteNode(myTree.root,34)
-myTree.deleteNode(myTree.root,31)
+// myTree.deleteNode(myTree.root,34)
+// myTree.deleteNode(myTree.root,31)
 
-console.log(myTree.bfs());
+// console.log(myTree.bfs());
+console.log(myTree.maxPathSum(myTree.root));
 
 //console.log(myTree.search(myTree.root,500));
 //console.log(myTree.search(myTree.root,42));
