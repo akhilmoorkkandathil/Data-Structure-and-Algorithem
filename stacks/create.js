@@ -1,3 +1,4 @@
+//creat node with val and next property
 class Node {
     constructor(val){
         this.val = val;
@@ -5,11 +6,16 @@ class Node {
     }
 }
 
+// create a stack class with top and length property;
+// write code for push,pop
 class Stack{
     constructor(){
         this.top = null;
         this.length = 0
     }
+    //create nod
+    //if (no lenght) add top
+    //else place the new node at the top of the stack
     push(val){
         const newNode = new Node(val);
         if(this.length === 0){
@@ -22,6 +28,9 @@ class Stack{
         this.length++;
         return true
     }
+    //if(not top) return false;
+    //else place top into a reference,make top.next as new top and break ref.next link by null
+    //
     pop(){
         if(!this.top) return false;
         let ref = this.top;

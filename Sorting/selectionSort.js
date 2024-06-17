@@ -1,5 +1,12 @@
 //selection sort
 
+
+//contain two for loop
+//first loop interate from 0 to entire length of array
+//set min value as i
+//second loop is start from i+1 to teh length of array
+// if any value in the array less than the arr[min] set min = j
+// swap the element in the i and min positon of array;
 function selectinSort(arr){
     for(let i = 0; i<arr.length;i++){
         let min = i;

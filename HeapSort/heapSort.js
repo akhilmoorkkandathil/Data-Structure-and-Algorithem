@@ -1,3 +1,14 @@
+function heapSort(arr){
+    let heap = createHeap(arr);
+    //console.log(heap);
+    let heapSize = heap.length;
+    while(heapSize>1){
+        [heap[heapSize-1],heap[0]]=[heap[0],heap[heapSize-1]];
+        heapSize--
+        heapify(heap,0,heapSize)
+    }
+    return heap
+}
 function createHeap(arr){
     let heap = [...arr];
     for(let i = Math.floor(heap.length/2)-1;i>=0;i--){
@@ -20,16 +31,6 @@ function heapify(heap,i,heapSize){
         heapify(heap,smallest,heapSize)
     }
 }
-function heapSort(arr){
-    let heap = createHeap(arr);
-    //console.log(heap);
-    let heapSize = heap.length;
-    while(heapSize>1){
-        [heap[heapSize-1],heap[0]]=[heap[0],heap[heapSize-1]];
-        heapSize--
-        heapify(heap,0,heapSize)
-    }
-    return heap
-}
 
 console.log(heapSort([40,50,20,40,10,70,30,80]));
+

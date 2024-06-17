@@ -61,5 +61,5 @@ myHeap.push(40)
 // myHeap.poll()
 // console.log(myHeap.data.join(","));
 console.log(myHeap.data);
-myHeap.poll()
-console.log(myHeap.data);
+// myHeap.poll()
+// console.log(myHeap.data);

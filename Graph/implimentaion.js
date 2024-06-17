@@ -88,16 +88,16 @@ class Graph{
 }
 
 const myGraph = new Graph();
-myGraph.addVertex("a")
-myGraph.addVertex("b")
-myGraph.addVertex("c")
-myGraph.addVertex("d")
-myGraph.addVertex("e")
-myGraph.addEdge("a","b")
-myGraph.addEdge("a","d")
-myGraph.addEdge("b","e")
-myGraph.addEdge("b","c")
-myGraph.addEdge("e","c")
+myGraph.addVertex("a");
+myGraph.addVertex("b");
+myGraph.addVertex("c");
+myGraph.addVertex("d");
+myGraph.addVertex("e");
+myGraph.addEdge("a","b");
+myGraph.addEdge("a","d");
+myGraph.addEdge("b","e");
+myGraph.addEdge("b","c");
+myGraph.addEdge("e","c");
 
 //myGraph.removeVertex("a")
 myGraph.display()

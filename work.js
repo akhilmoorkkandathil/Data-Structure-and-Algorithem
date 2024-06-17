@@ -2,6 +2,10 @@
 // let target = "d";
 // function binarySearch(arr,target){
 //     let leftIndex = 0,rightIndex = arr.length-1;
+
+const { log } = require("console");
+const { verify } = require("crypto");
+
     
 //     while(leftIndex<=rightIndex){
 //         let middle = Math.floor((leftIndex+rightIndex)/2)
@@ -1749,7 +1753,7 @@
 //     }
 //     heapifyUp(){
 //         let currentIndex = this.data.length-1;
-//         if(this.data[this.getParentIndex(currentIndex)<this.data[currentIndex]]){
+//         if(this.data[this.getParentIndex(currentIndex)]<this.data[currentIndex]){
 //             this.swap(currentIndex,this.getParentIndex(currentIndex));
 //         }
 //     }
@@ -1784,6 +1788,8 @@
 // myMaxHeap.add(24)
 // myMaxHeap.add(48)
 // myMaxHeap.add(35);
+// console.log(myMaxHeap.data);
+// console.log(myMaxHeap.getMax());
 // console.log(myMaxHeap.data);
 
 
@@ -2333,12 +2339,239 @@
 
 
 
-class Graph{
-    constructor(){
-        this.adjesencyList = {};
-    }
-}
+
+// class Node{
+//     constructor(char){
+//         this.char = char;
+//         this.children = {};
+//         this.isEnd = false;
+//     }
+// }
+
+// class Trie{
+//     constructor(){
+//         this.root = new Node(null)
+//     }
+//     insert(word){
+//         let curr = this.root;
+//         for (let char of word){
+//             if(!curr.children[char]){
+//                 curr.children[char]=new Node(char)
+//             }
+//             curr= curr.children[char]
+//         }
+//         curr.isEnd = true;
+//     }
+//     search(word){
+//         let curr = this.root;
+//         for(let char of word){
+//             if(!curr.children[char]){
+//                 return false
+//             }
+//             curr = curr.children[char]
+//         }
+//         return true
+//     }
+
+//     findSuggestion(prefix){
+//         let curr = this.root;
+//         for(let char of prefix){
+//             if(!curr.children[char]){
+//                 return []
+//             }
+//             curr = curr.children[char]
+//         }
+//         let suggestion = [];
+
+//         this.collectSuggestion(curr,prefix,suggestion)
+//         return suggestion;
+//     }
+//     collectSuggestion(node,prefix,suggestion){
+//         if(node.isEnd) suggestion.push(prefix);
+//         for(let child in node.children){
+//             this.collectSuggestion(node.children[child],prefix+child,suggestion)
+//         }
+//     }
+// }
+
+
+
+// class Graph{
+//     constructor(){
+//         this.adjescencyList = {};
+//     }
+//     addVertex(vertex){
+//         if(!this.adjescencyList[vertex]){
+//             this.adjescencyList[vertex]= new Set()
+//         }
+//     }
+
+//     addEdge(v1,v2){
+//         if(!this.adjescencyList[v1]){
+//             this.adjescencyList[v1]= new Set()
+//         }
+//         if(!this.adjescencyList[v2]){
+//             this.adjescencyList[v2]= new Set()
+//         }
+//         this.adjescencyList[v1].add(v2);
+//         this.adjescencyList[v2].add(v1)
+
+//     }
+//     bfs(startNode){
+//         let queue = [startNode];
+//         let vertexes = Object.keys(this.adjescencyList);
+//         for(let v of vertexes){
+//             visited[v]=false;
+//         }
+//         visited[startNode]= true;
+//         let bfs= []
+
+//         while(queue.length){
+//             let curr = queue.shift();
+//             bfs.push(curr);
+//             for(let neghbour of this.adjescencyList[curr]){
+//                 if(!visited[neghbour]){
+//                     queue.push(neghbour);
+//                     visited[neghbour]= true
+//                 }
+//             }
+//         }
+//         return bfs;
+//     }
+// }
+
+
+
+// function selection(arr){
+//     for (let i = 0; i < arr.length; i++) {
+//        let min = i;
+//        for (let j = i+1; j < arr.length; j++) {
+//         if(arr[j]<arr[min]){
+//             min = j
+//         }
+        
+//        }
+//        if(min!==i){
+//         [arr[i],arr[min]]=[arr[min],arr[i]]
+//        }
+        
+//     }
+//     return arr
+// }
+
+
+// function insertion(arr){
+//     for (let i = 1; i < arr.length; i++) {
+//         let NTI = arr[i];
+//         let j = i-1;
+//         while(j>=0 && arr[j]>NTI){
+//             arr[j+1]=arr[j]
+//             j--
+//         }
+//         arr[j+1]=NTI;
+//     }
+// }
+
+
+// function mergeSort(arr){
+//     if(arr.length<2) return arr;
+//     let mid = Math.floor(arr.length/2);
+//     let left = arr.slice(0,mid);
+//     let right = arr.slice(mid);
+//     return merge(mergeSort(left),mergeSort(right))
+// }
+
+// function merge(left,right){
+//     let sorted = [];
+//     while(left.length && right.length){
+//         if(left[0]<right[0]){
+//             sorted.push(left[0])
+//         }else{
+//             sorted.push(right[0])
+//         }
+//     }
+//     return [...sorted,...left,...right];
+// }
+
+// function hello(){
+//     function greet(){
+//         console.log("Hello "+this.name);
+//     }
+// }
+
+
+// const obj = {
+//     name:"akhil",
+//     age:30
+// }
+
+// const {name,age} = obj;
+// console.log(age,name)
+
+
+// hello.apply(obj)
+
+// function promise(){
+//     return new Promise((res,rej)=>{
+//         res("resolved")
+//     })
+// }
+
+// const myPromise = promise()
+
+// myPromise.then((data)=>{
+//     console.log(data);
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
 
 
 
 
+const http = require('http');
+const url = require('url');
+const os = require("os")
+
+
+let givenUrl = "https://www.linkedin.com/notifications/?filter=all";
+
+const hostName = url.parse(givenUrl)
+console.log(hostName.host);
+const osname = os.homedir();
+console.log(osname);
+
+const server = http.createServer((req,res)=>{
+    res.write("Hello");
+    res.end()
+})
+
+server.listen(3200,()=>{
+    console.log("Server is running");
+})
+
+// let arr = [1,1,1,2,2,2,3,3,3,4,4,4,1,1,1,1];
+
+
+// function mergesort(arr){
+//     if(arr.length<2) return arr;
+//     let middle = Math.floor((arr.length/2));
+//     let left = arr.splice(0,middle);
+//     let right = arr.splice(middle);
+
+//     return merge(mergesort(left),mergesort(right));
+// }
+
+// function merge(left,right){
+//     let sorted = [];
+//     while(left.length && right.length){
+//         if(left[0]>right[0]){
+//             sorted.push(left[0])
+//         }else{
+//             sorted.push(right[0])
+//         }
+//     }
+//     return [...sorted,...left,...right];
+// }
+
+// console.log(mergesort([2,1,5,4,6,7,9,7,1,0,7,5]));

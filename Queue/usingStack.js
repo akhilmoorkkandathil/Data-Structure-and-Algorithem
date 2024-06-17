@@ -38,7 +38,7 @@ myQueue.push(40);
 myQueue.push(50);
 myQueue.push(60);
 myQueue.push(70);
-myQueue.pop()
-myQueue.pop()
+console.log(myQueue.pop());
+console.log(myQueue.peek());
 
-console.log(myQueue.print());
+// console.log(myQueue.print());

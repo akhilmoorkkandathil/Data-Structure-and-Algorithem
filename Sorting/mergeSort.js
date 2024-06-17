@@ -20,4 +20,4 @@ function merge(left,right){
     return [...sorted,...left,...right];
 }
 
-console.log(mergeSort([7,2,4,1,3,5,9,8,6]));
+console.log(mergeSort([1,2,3,4,5,8,5,7,9,6]));

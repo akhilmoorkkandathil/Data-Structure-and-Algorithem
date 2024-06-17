@@ -68,15 +68,22 @@ class maxHeap{
 
 const myHeap = new maxHeap();
 
-// myHeap.addToMaxHeap(50)
-// myHeap.addToMaxHeap(60)
-// myHeap.addToMaxHeap(70)
-// myHeap.addToMaxHeap(10)
-// myHeap.addToMaxHeap(20)
-// myHeap.addToMaxHeap(30)
-// myHeap.addToMaxHeap(40)
-//  console.log(myHeap.data);
- console.log(myHeap.heapSort([60,40,20,40,60,10,20,50]));
+myHeap.addToMaxHeap(50)
+myHeap.addToMaxHeap(60)
+myHeap.addToMaxHeap(70)
+myHeap.addToMaxHeap(10)
+myHeap.addToMaxHeap(20)
+myHeap.addToMaxHeap(30)
+myHeap.addToMaxHeap(40)
+ console.log(myHeap.data);
+ console.log(myHeap.getMaxValue());
+ console.log(myHeap.getMaxValue());
+ console.log(myHeap.getMaxValue());
+ console.log(myHeap.getMaxValue());
+ console.log(myHeap.getMaxValue());
+ console.log(myHeap.getMaxValue());
+ console.log(myHeap.getMaxValue());
+//  console.log(myHeap.heapSort([60,40,20,40,60,10,20,50]));
 
 //console.log( myHeap.getMaxValue());
  //console.log(myHeap.data);

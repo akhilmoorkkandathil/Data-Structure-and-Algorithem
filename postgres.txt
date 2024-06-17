@@ -1,0 +1,106 @@
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    UserName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    PhoneNumber VARCHAR(15),
+    Salary DECIMAL(10, 2),
+);
+
+
+//Drop table
+DROP TABLE Employees;
+
+
+INSERT INTO Employees (EmployeeID, UserName, Email, PhoneNumber, Salary)
+VALUES 
+    (1, 'JohnDoe', 'john.doe@example.com', '555-1234', 50000.00),
+    (2, 'JaneSmith', 'jane.smith@example.com', '555-5678', 60000.00),
+    (3, 'SamBrown', 'sam.brown@example.com', '555-8765', 55000.00),
+    (4, 'EmilyWhite', 'emily.white@example.com', '555-4321', 62000.00),
+    (5, 'MichaelGreen', 'michael.green@example.com', '555-8761', 58000.00);
+
+// delte all record in the table
+TRUNCATE TABLE Employees;
+
+select * from Employees
+
+select username,salary from Employees where salary>50000 order by salary
+
+//Add new record
+INSERT INTO Employees (EmployeeID, UserName, Email, PhoneNumber, Salary)
+VALUES 
+    (6, 'Akhil', 'akhil@example.com', '3432535534', 100000.00)
+
+
+
+//Update existing record
+update Employees
+set UserName = 'Akhil Moorkkandathil'
+where employeeid = 6
+
+//delete record from table
+DELETE FROM Employees
+WHERE EmployeeID = 1;
+
+ALTER TABLE Employees
+DROP COLUMN PhoneNumber;
+
+
+//Add new column in tableALTER TABLE Employees
+ALTER TABLE Employees
+ADD COLUMN salary DECIMAL(10,2);
+
+
+// set value to newly added columnUPDATE Employees
+UPDATE Employees
+SET Salary = 68000
+WHERE EmployeeID = 1;
+
+//Create index
+CREATE INDEX name_index
+ON Employees (UserName);
+
+
+//to get distinct data
+select distinct username from Employees order by username
+
+//or
+select * from Employees where salary>55500 or employeeid<3 order by employeeid
+
+//and
+select * from Employees where salary>55500 and employeeid<5 order by employeeid
+
+//limit
+select * from Employees where salary>55500 or employeeid<3 order by employeeid limit 3
+
+//fetch
+select * from Employees where salary>55500 or employeeid<3 order by employeeid fetch first row only
+
+//in
+select * from Employees where salary>55500 and employeeid in (1,2,3,4)
+
+//between
+select * from Employees where salary>55500 and employeeid between 3 and 7
+
+//like
+select * from Employees where username like '%kh%'
+
+//is NULL
+select * from Employees where salary is null
+
+//is not null
+select * from Employees where salary is not null
+
+//inner join
+select a,fruit_a,b,fruit_b from basket_a inner join basket_b on fruit_a = fruit_b
+
+//left join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM Employs e
+LEFT JOIN Departments d ON e.department_id = d.department_id;
+
+//right join
+SELECT e.employee_id, e.employee_name, d.department_name
+FROM Employs e
+RIGHT JOIN Departments d ON e.department_id = d.department_id;
+

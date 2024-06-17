@@ -4,9 +4,3 @@ function paliandrom(str){
     return false;
 }
 console.log(paliandrom("MALAYALAM"));
-// let a=[
-//         [[1,2,3],[1,2,3]],
-//         [[1,2,3],[1,2,3]],
-//         [[1,2,3],[123]]
-//       ]
-// console.log(a);

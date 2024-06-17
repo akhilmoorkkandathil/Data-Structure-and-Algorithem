@@ -1,3 +1,6 @@
+//tree conatain node with val,left, right properties
+// tree have property root and insert, traversal,delete ,etc methods.
+
 class Node{
     constructor(val){
         this.val = val;
@@ -5,13 +8,17 @@ class Node{
         this.right = null;
     }
 }
-
+//tree have root porpery
 class Tree{
     constructor(){
         this.root = null
     }
-
     //insert
+    //create newNode
+    //if(!root) add this as root
+    //store root in curr varable
+    //while(true) if(val<curr.val) if(!curr.left) curr.left = newNode else curr = curr.left
+    //                             if(!curr.right) curr.right = newNode else curr = curr.right
     insert(val){
         let newNode = new Node(val)
         if(!this.root){
@@ -35,6 +42,22 @@ class Tree{
             }
         }
     }
+    insertRecursively(val){
+        this.root =  this._insert(val,this.root);
+    }
+    _insert(val,node){
+        if(!node){
+            return new Node(val)
+        }
+        if(val<node.val){
+            node.left =  this._insert(val,node.left)
+        }else{
+            node.right =  this._insert(val,node.right)
+        }
+        return node
+    }
+
+
     //contain
     search(root,val){
         if(!root) return false;
